@@ -1,8 +1,9 @@
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
+    if skus.count('A') + skus.count('B') + skus.count('C') + skus.count('D') < len(skus):
+        return -1
     if skus.isalpha():
-        skus.upper()
         a_total = skus.count('A')//3 * 130 + skus.count('A') % 3 * 50
         b_total = skus.count('B')//2 * 45 + skus.count('B') % 2 * 30
         c_total = skus.count('C') * 20
@@ -15,4 +16,5 @@ def checkout(skus):
     else:
         #Characters other than alphabets in string
         return -1
+
 
