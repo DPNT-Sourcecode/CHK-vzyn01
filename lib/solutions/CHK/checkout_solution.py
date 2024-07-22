@@ -64,13 +64,36 @@ def checkout(skus):
         total['Q'] = count_dict['Q']//3 * 80 + count_dict['Q'] % 3 * price_dict['Q']
 
         #Item Group Offer
-        total['S'] = count_dict['S'] * price_dict['S']
-        total['T'] = count_dict['T'] * price_dict['T']
-        total['X'] = count_dict['X'] * price_dict['X']
-        total['Y'] = count_dict['Y'] * price_dict['Y']
-        total['Z'] = count_dict['Z'] * price_dict['Z']
+        #total['S'] = count_dict['S'] * price_dict['S']
+        #total['T'] = count_dict['T'] * price_dict['T']
+        #total['X'] = count_dict['X'] * price_dict['X']
+        #total['Y'] = count_dict['Y'] * price_dict['Y']
+        #total['Z'] = count_dict['Z'] * price_dict['Z']
+        offer_array = [count_dict['S'], count_dict['T'], count_dict['X'], count_dict['Y'], count_dict['Z']]
+        total_group1_offer = (count_dict['S'] + count_dict['T'] + count_dict['X'] + count_dict['Y'] + count_dict['Z'])//3 * 45
+        remaining_amount = (count_dict['S'] + count_dict['T'] + count_dict['X'] + count_dict['Y'] + count_dict['Z']) % 3
+        
+        remaining_items_sorted = []
 
-        return sum(total.values())
+        for i in range(count_dict['X']):
+            remaining_items_sorted.append('X')
+        for i in range(count_dict['S']):
+            remaining_items_sorted.append('S')
+        for i in range(count_dict['T']):
+            remaining_items_sorted.append('T')
+        for i in range(count_dict['Y']):
+            remaining_items_sorted.append('Y')
+        for i in range(count_dict['Z']):
+            remaining_items_sorted.append('Z')
+
+        if remaining_amount == 0:
+            return sum(total.values()) + total_group1_offer
+        elif remaining_amount == 1:
+            return sum(total.values) + total_group1_offer + price_dict[remaining_items_sorted[0]]
+        else:
+            return sum(total.values) + total_group1_offer + price_dict[remaining_items_sorted[0]] + price_dict[remaining_items_sorted[1]]
+        
     
     #Characters other than alphabets in string
     return -1
+
