@@ -1,5 +1,3 @@
-
-
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
@@ -14,4 +12,5 @@ def checkout(skus):
     else:
         #Characters other than alphabets in string
         return -1
+
 
