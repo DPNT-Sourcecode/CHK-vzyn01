@@ -69,21 +69,25 @@ def checkout(skus):
         #total['X'] = count_dict['X'] * price_dict['X']
         #total['Y'] = count_dict['Y'] * price_dict['Y']
         #total['Z'] = count_dict['Z'] * price_dict['Z']
-        offer_array = [count_dict['S'], count_dict['T'], count_dict['X'], count_dict['Y'], count_dict['Z']]
+        #offer_array = [count_dict['S'], count_dict['T'], count_dict['X'], count_dict['Y'], count_dict['Z']]
         total_group1_offer = (count_dict['S'] + count_dict['T'] + count_dict['X'] + count_dict['Y'] + count_dict['Z'])//3 * 45
         remaining_amount = (count_dict['S'] + count_dict['T'] + count_dict['X'] + count_dict['Y'] + count_dict['Z']) % 3
         
         remaining_items_sorted = []
-
-        for i in range(count_dict['X']):
+        x = count_dict['X']
+        s = count_dict['S']
+        t = count_dict['T']
+        y = count_dict['Y']
+        z = count_dict['Z']
+        for i in range(x):
             remaining_items_sorted.append('X')
-        for i in range(count_dict['S']):
+        for i in range(s):
             remaining_items_sorted.append('S')
-        for i in range(count_dict['T']):
+        for i in range(t):
             remaining_items_sorted.append('T')
-        for i in range(count_dict['Y']):
+        for i in range(y):
             remaining_items_sorted.append('Y')
-        for i in range(count_dict['Z']):
+        for i in range(z):
             remaining_items_sorted.append('Z')
 
         if remaining_amount == 0:
@@ -96,4 +100,5 @@ def checkout(skus):
     
     #Characters other than alphabets in string
     return -1
+
 
