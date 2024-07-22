@@ -33,12 +33,7 @@ def checkout(skus):
         total['N'] = count_dict['N'] * price_dict['N']
         total['O'] = count_dict['O'] * price_dict['O']
         total['R'] = count_dict['R'] * price_dict['R']
-        total['S'] = count_dict['S'] * price_dict['S']
-        total['T'] = count_dict['T'] * price_dict['T']
         total['W'] = count_dict['W'] * price_dict['W']
-        total['X'] = count_dict['X'] * price_dict['X']
-        total['Y'] = count_dict['Y'] * price_dict['Y']
-        total['Z'] = count_dict['Z'] * price_dict['Z']
 
         #Various multi offer on same skus (x_num for p1 y_num for p2 etc )
         total['A'] = count_dict['A']//5 * 200 + (count_dict['A']%5)//3 * 130 + (count_dict['A']%5) % 3 * price_dict['A']
@@ -68,7 +63,15 @@ def checkout(skus):
             count_dict['Q'] = 0
         total['Q'] = count_dict['Q']//3 * 80 + count_dict['Q'] % 3 * price_dict['Q']
 
+        #Item Group Offer
+        total['S'] = count_dict['S'] * price_dict['S']
+        total['T'] = count_dict['T'] * price_dict['T']
+        total['X'] = count_dict['X'] * price_dict['X']
+        total['Y'] = count_dict['Y'] * price_dict['Y']
+        total['Z'] = count_dict['Z'] * price_dict['Z']
+
         return sum(total.values())
     
     #Characters other than alphabets in string
     return -1
+
