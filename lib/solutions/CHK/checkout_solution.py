@@ -93,12 +93,13 @@ def checkout(skus):
         if remaining_amount == 0:
             return sum(total.values()) + total_group1_offer
         elif remaining_amount == 1:
-            return sum(total.values) + total_group1_offer + price_dict[remaining_items_sorted[0]]
+            return sum(total.values()) + total_group1_offer + price_dict[remaining_items_sorted[0]]
         else:
-            return sum(total.values) + total_group1_offer + price_dict[remaining_items_sorted[0]] + price_dict[remaining_items_sorted[1]]
+            return sum(total.values()) + total_group1_offer + price_dict[remaining_items_sorted[0]] + price_dict[remaining_items_sorted[1]]
         
     
     #Characters other than alphabets in string
     return -1
+
 
 
