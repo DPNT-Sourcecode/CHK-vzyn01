@@ -74,4 +74,3 @@ def checkout(skus):
     
     #Characters other than alphabets in string
     return -1
-
