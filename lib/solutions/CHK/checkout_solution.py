@@ -25,9 +25,9 @@ def checkout(skus):
 
         return a_total + b_total + c_total + d_total + e_total
         #Treat any other alphabets as bad barcode reads for now
-    else:
-        #Characters other than alphabets in string
-        return -1
+    #Characters other than alphabets in string
+    return -1
+
 
 
 
