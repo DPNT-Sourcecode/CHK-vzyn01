@@ -30,8 +30,9 @@ def checkout(skus):
         total['I'] = count_dict['I'] * price_dict['I']
         total['J'] = count_dict['J'] * price_dict['J']
         total['L'] = count_dict['L'] * price_dict['L']
-        total['M'] = count_dict['M'] * price_dict['M']
+        total['N'] = count_dict['N'] * price_dict['N']
         total['O'] = count_dict['O'] * price_dict['O']
+        total['R'] = count_dict['R'] * price_dict['R']
         total['S'] = count_dict['S'] * price_dict['S']
         total['T'] = count_dict['T'] * price_dict['T']
         total['W'] = count_dict['W'] * price_dict['W']
@@ -46,7 +47,6 @@ def checkout(skus):
 
         total['K'] = count_dict['K']//2 * 150 + count_dict['K'] % 2 * price_dict['K']
         total['P'] = count_dict['P']//5 * 200 + count_dict['P'] % 5 * price_dict['P']
-        total['Q'] = count_dict['Q']//3 * 80 + count_dict['K'] % 3 * price_dict['Q']
 
         #Multi Offer Type 2 (Buy x Get y free)
         total['F'] = count_dict['F']//3 * 2 * price_dict['F'] + count_dict['F'] % 3 * price_dict['F']
@@ -63,12 +63,16 @@ def checkout(skus):
             count_dict['M'] = 0
         total['M'] = count_dict['M'] * price_dict['M']
 
-
+        count_dict['Q'] = count_dict['Q'] - count_dict['R'] // 3
+        if count_dict['Q'] < 0:
+            count_dict['Q'] = 0
+        total['Q'] = count_dict['Q']//3 * 80 + count_dict['K'] % 3 * price_dict['Q']
 
         return sum(total.values())
     
     #Characters other than alphabets in string
     return -1
+
 
 
 
