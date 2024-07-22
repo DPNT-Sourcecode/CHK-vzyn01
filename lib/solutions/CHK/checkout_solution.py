@@ -24,9 +24,10 @@ def checkout(skus):
         b_total = b_count//2 * 45 + b_count % 2 * 30
 
         return a_total + b_total + c_total + d_total + e_total
-        #Treat any other alphabets as bad barcode reads for now
+    
     #Characters other than alphabets in string
     return -1
+
 
 
 
