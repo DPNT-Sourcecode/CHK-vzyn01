@@ -42,7 +42,7 @@ def checkout(skus):
 
         #Various multi offer on same skus (x_num for p1 y_num for p2 etc )
         total['A'] = count_dict['A']//5 * 200 + (count_dict['A']%5)//3 * 130 + (count_dict['A']%5) % 3 * price_dict['A']
-        total['H'] = count_dict['H']//10 * 80 + (count_dict['H']%10)//5 * 145 + (count_dict['H']%10) % 5 * price_dict['H']
+        total['H'] = count_dict['H']//10 * 80 + (count_dict['H']%10)//5 * 45 + (count_dict['H']%10) % 5 * price_dict['H']
         total['V'] = count_dict['V']//3 * 130 + (count_dict['V']%3)//2 * 90 + (count_dict['V']%3) % 2 * price_dict['V']
 
         total['K'] = count_dict['K']//2 * 150 + count_dict['K'] % 2 * price_dict['K']
@@ -66,12 +66,13 @@ def checkout(skus):
         count_dict['Q'] = count_dict['Q'] - count_dict['R'] // 3
         if count_dict['Q'] < 0:
             count_dict['Q'] = 0
-        total['Q'] = count_dict['Q']//3 * 80 + count_dict['K'] % 3 * price_dict['Q']
+        total['Q'] = count_dict['Q']//3 * 80 + count_dict['Q'] % 3 * price_dict['Q']
 
         return sum(total.values())
     
     #Characters other than alphabets in string
     return -1
+
 
 
 
