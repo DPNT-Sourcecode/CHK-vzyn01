@@ -19,8 +19,8 @@ def checkout(skus):
                       'Y': skus.count('Y'), 'Z': skus.count('Z')}
 
         price_dict = {'A': 50, 'B': 30, 'C': 20, 'D': 15, 'E': 40, 'F': 10, 'G': 20, 'H': 10, 'I': 35, 'J': 60, 
-                      'K': 80, 'L': 90, 'M': 15, 'N': 40, 'O': 10, 'P': 50, 'Q': 30, 'R': 50, 
-                      'S': 30, 'T': 20, 'U': 40, 'V': 50, 'W': 20, 'X': 90, 'Y': 10, 'Z': 50}
+                      'K': 70, 'L': 90, 'M': 15, 'N': 40, 'O': 10, 'P': 50, 'Q': 30, 'R': 50, 
+                      'S': 20, 'T': 20, 'U': 40, 'V': 50, 'W': 20, 'X': 17, 'Y': 20, 'Z': 21}
 
         #No Offers
         total['C'] = count_dict['C'] * price_dict['C']
@@ -45,7 +45,7 @@ def checkout(skus):
         total['H'] = count_dict['H']//10 * 80 + (count_dict['H']%10)//5 * 45 + (count_dict['H']%10) % 5 * price_dict['H']
         total['V'] = count_dict['V']//3 * 130 + (count_dict['V']%3)//2 * 90 + (count_dict['V']%3) % 2 * price_dict['V']
 
-        total['K'] = count_dict['K']//2 * 150 + count_dict['K'] % 2 * price_dict['K']
+        total['K'] = count_dict['K']//2 * 120 + count_dict['K'] % 2 * price_dict['K']
         total['P'] = count_dict['P']//5 * 200 + count_dict['P'] % 5 * price_dict['P']
 
         #Multi Offer Type 2 (Buy x Get y free)
@@ -72,8 +72,3 @@ def checkout(skus):
     
     #Characters other than alphabets in string
     return -1
-
-
-
-
-
