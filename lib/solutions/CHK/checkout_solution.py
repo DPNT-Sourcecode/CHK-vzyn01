@@ -4,12 +4,9 @@ def checkout(skus):
     if skus == "":
         return 0
     if skus.isalpha() and skus.isupper():
-        a_count = skus.count('A')
-        b_count = skus.count('B')
-        c_count = skus.count('C')
-        d_count = skus.count('D')
-        e_count = skus.count('E')
-        f_count = skus.count('F')
+        total = {'A': 0, 'B': 0, 'C': 0, 'D': 0, 'E': 0, 'F': 0, 'G': 0, 'H': 0, 'I': 0, 'J': 0, 'K': 0, 'L': 0, 
+                 'M': 0, 'N': 0, 'O': 0, 'P': 0, 'Q': 0, 'R': 0, 'S': 0, 'T': 0, 'U': 0, 'V': 0, 'W': 0, 'X': 0, 
+                 'Y': 0, 'Z': 0}
 
         #Count Dict probably could have been created a lot more easily through some 
         #one liner related to alphabet and count of alphabet as key value pairs for all uppercase alphabets
@@ -24,19 +21,40 @@ def checkout(skus):
         price_dict = {'A': 50, 'B': 30, 'C': 20, 'D': 15, 'E': 40, 'F': 10, 'G': 20, 'H': 10, 'I': 35, 'J': 60, 
                       'K': 80, 'L': 90, 'M': 15, 'N': 40, 'O': 10, 'P': 50, 'Q': 30, 'R': 50, 
                       'S': 30, 'T': 20, 'U': 40, 'V': 50, 'W': 20, 'X': 90, 'Y': 10, 'Z': 50}
-        
-        a_total = count_dict['A']//5 * 200 + (count_dict['A']%5)//3 * 130 + (count_dict['A']%5) % 3 * price_dict['A']
-        c_total = count_dict['C'] * price_dict['C']
-        d_total = count_dict['D'] * price_dict['D']
-        e_total = count_dict['E'] * price_dict['E']
-        f_total = count_dict['F']//3 * 2 * price_dict['F'] + count_dict['F'] % 3 * price_dict['F']
 
+        #No Offers
+        total['C'] = count_dict['C'] * price_dict['C']
+        total['D'] = count_dict['D'] * price_dict['D']
+        total['E'] = count_dict['E'] * price_dict['E']
+        total['G'] = count_dict['G'] * price_dict['G']
+        total['I'] = count_dict['I'] * price_dict['I']
+        total['J'] = count_dict['J'] * price_dict['J']
+        total['L'] = count_dict['L'] * price_dict['L']
+        total['M'] = count_dict['M'] * price_dict['M']
+        total['O'] = count_dict['O'] * price_dict['O']
+        total['S'] = count_dict['S'] * price_dict['S']
+        total['T'] = count_dict['T'] * price_dict['T']
+        total['W'] = count_dict['W'] * price_dict['W']
+        total['X'] = count_dict['X'] * price_dict['X']
+        total['Y'] = count_dict['Y'] * price_dict['Y']
+        total['Z'] = count_dict['Z'] * price_dict['Z']
+
+        #Various multi offer on same skus (x_num for p1 y_num for p2 etc )
+        total['A'] = count_dict['A']//5 * 200 + (count_dict['A']%5)//3 * 130 + (count_dict['A']%5) % 3 * price_dict['A']
+
+        #Multi Offer Type 2 (Buy x Get y free)
+        total['F'] = count_dict['F']//3 * 2 * price_dict['F'] + count_dict['F'] % 3 * price_dict['F']
+
+        #Multi offer between 2 skus
         count_dict['B'] = count_dict['B'] - count_dict['E'] // 2
         if count_dict['B'] < 0:
             count_dict['B'] = 0
-        b_total = count_dict['B']//2 * 45 + count_dict['B'] % 2 * 30
+        total['B'] = count_dict['B']//2 * 45 + count_dict['B'] % 2 * 30
 
-        return a_total + b_total + c_total + d_total + e_total + f_total
+
+
+        return sum(total.values())
     
     #Characters other than alphabets in string
     return -1
+
