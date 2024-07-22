@@ -13,7 +13,7 @@ def checkout(skus):
         if a_count + b_count + c_count + d_count + e_count < len(skus):
             return -1
         
-        a_total = a_count//5 * 200 + (a_count%5)//3 * 130 + a_count % 3 * 50
+        a_total = a_count//5 * 200 + (a_count%5)//3 * 130 + (a_count%5) % 3 * 50
         c_total = c_count * 20
         d_total = d_count * 15
         e_total = e_count * 40
@@ -27,3 +27,4 @@ def checkout(skus):
     
     #Characters other than alphabets in string
     return -1
+
